@@ -1,0 +1,42 @@
+services:
+  nest-boaton:
+    build:
+      dockerfile: .docker/nest/Dockerfile
+    restart: unless-stopped
+    ports:
+      - ${NEST_PORT}:3000
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_NAME: ${DB_NAME}
+      DB_PORT: ${DB_PORT}
+      TESTDB_HOST: ${TESTDB_HOST}
+      TESTDB_PORT: ${TESTDB_PORT}
+      TESTDB_USER: ${TESTDB_USER}
+      TESTDB_PASS: ${TESTDB_PASS}
+      TESTDB_NAME: ${TESTDB_NAME}
+    volumes:
+      - ./:/home/node/app
+    depends_on:
+      - db-boaton
+
+  db-boaton:
+    image: postgres:16.1-alpine3.19
+    restart: always
+    ports:
+      - ${DB_PORT}:5432
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+
+  testdb-boaton:
+    image: postgres:16.1-alpine3.19
+    restart: always
+    ports:
+      - ${TESTDB_PORT}:5432
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}

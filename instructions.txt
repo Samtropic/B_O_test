@@ -2,28 +2,38 @@ The test will be on NestJS 10.3.3 with Fastify, a PostgreSQL DB, and TypeORM.
 Read all until the end, that could help you understand the objective and how to do it better!
 
 Your project should be able to:
+
 1. Create a User like this:
 - id
 - first name
 - last name
 - email (2 Users with the same email can't be created)
 - password (don’t lose time with encryption)
+
 2. Get the information of this User (all information except password)
+
 3. Update this User information (except the email and ID, which should not be able to be edited)
+
 4. Create Boats with those data:
 - id
 - name
 - length
 - width
+
 5. Boats should be linked to 1 and only 1 User
+
 6. Get all Boats of 1 User
+
 7. Create Engines with those data:
 - id
 - power
 - model
 - maker
+
 8. Engines are linked to a Boat and can only be fetched, created, updated, or deleted from the Boat in cascade
+
 9. (BONUS) You can make the documentation with Swagger
+
 
 ! Don't do things that are not asked (ex: update a boat) you will lose time for no purpose !
 

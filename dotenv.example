@@ -1,0 +1,17 @@
+NEST_PORT=3000
+
+DB_HOST=localhost #db-boaton
+DB_PORT=5432
+DB_USER=root
+DB_PASS=pass
+DB_DBNAME=postgres
+
+POSTGRES_USER=root
+POSTGRES_PASSWORD= pass
+POSTGRES_DB=postgres
+
+TESTDB_HOST=localhost #testdb-boaton
+TESTDB_PORT=5433
+TESTDB_USER=testdbuser
+TESTDB_PASS=testdbpass
+TESTDB_DBNAME=testdbpostgres
